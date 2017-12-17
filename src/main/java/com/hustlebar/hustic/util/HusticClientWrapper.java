@@ -11,5 +11,11 @@ public class HusticClientWrapper {
         this.baseUri = baseUri;
     }
 
+    public HttpClient getHttpClient() {
+        return httpClient;
+    }
 
+    public String getBaseUri() {
+        return baseUri;
+    }
 }
