@@ -1,7 +1,5 @@
 package com.hustlebar.hustic.base;
 
-import com.hustlebar.hustic.base.HusticException;
-
 /**
  * @author tham
  */
