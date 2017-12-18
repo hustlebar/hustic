@@ -1,10 +1,16 @@
 package com.hustlebar.hustic;
 
-import com.hustlebar.hustic.base.HusticResponse;
 import com.hustlebar.hustic.get.GetRequestBuilder;
 import com.hustlebar.hustic.get.GetResponse;
+import com.hustlebar.hustic.index.IndexRequestBuilder;
 import com.hustlebar.hustic.util.HusticClientWrapper;
 import org.apache.http.client.HttpClient;
+
+import javax.json.JsonObject;
+
+/**
+ * @author tham
+ */
 
 public class Hustic {
     private final HusticClientWrapper wrapper;
@@ -17,5 +23,11 @@ public class Hustic {
         return new GetRequestBuilder(wrapper)
                 .build(index, type, id)
                 .execute();
+    }
+
+    public void index(String index, String type, JsonObject data) {
+        new IndexRequestBuilder(wrapper)
+            .build(index, type, data)
+            .execute();
     }
 }
