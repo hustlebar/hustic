@@ -1,14 +1,10 @@
 package com.hustlebar.hustic.get;
 
-import com.hustlebar.hustic.base.HusticResponse;
-import com.hustlebar.hustic.base.HusticResponseBuilder;
 import com.hustlebar.hustic.util.HusticClientWrapper;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 
 import java.io.IOException;
-import java.net.URI;
 
 public class GetRequest {
     private HusticClientWrapper wrapper;
@@ -19,16 +15,16 @@ public class GetRequest {
         this.path = path;
     }
 
-    public HusticResponse execute() {
+    public GetResponse execute() {
         final HttpClient client = wrapper.getHttpClient();
-        HusticResponse hResponse = null;
+        GetResponse getResponse = null;
         try {
-            final HttpResponse response = client.execute(new HttpGet(this.path));
-            hResponse = HusticResponseBuilder.build(response);
+            getResponse = client.execute(new HttpGet(this.path),
+                    new GetResponseHandler());
         } catch (IOException ioe) {
-
+            //TODO: Tham
         }
 
-        return hResponse;
+        return getResponse;
     }
 }
