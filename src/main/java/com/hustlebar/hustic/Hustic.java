@@ -1,5 +1,6 @@
 package com.hustlebar.hustic;
 
+import com.hustlebar.hustic.delete.DeleteRequestBuilder;
 import com.hustlebar.hustic.get.GetRequestBuilder;
 import com.hustlebar.hustic.get.GetResponse;
 import com.hustlebar.hustic.index.IndexRequestBuilder;
@@ -29,5 +30,11 @@ public class Hustic {
         new IndexRequestBuilder(wrapper)
             .build(index, type, data)
             .execute();
+    }
+
+    public void delete(String index, String type, String id) {
+        new DeleteRequestBuilder(wrapper)
+                .build(index, type, id)
+                .execute();
     }
 }
