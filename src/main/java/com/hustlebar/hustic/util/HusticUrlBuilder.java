@@ -24,6 +24,14 @@ public class HusticUrlBuilder {
                 .toString();
     }
 
+    public static final String buildSearch(HusticClientWrapper wrapper,
+                                          String index, String type) {
+        return new StringBuilder(buildBase(wrapper, index, type))
+                .append("/")
+                .append("_search")
+                .toString();
+    }
+
     private static final String buildBase(HusticClientWrapper wrapper,
                                           String index, String type) {
         return new StringBuilder(wrapper.getBaseUri())

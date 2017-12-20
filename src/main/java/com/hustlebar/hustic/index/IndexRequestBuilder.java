@@ -17,8 +17,6 @@ public class IndexRequestBuilder {
     public IndexRequest build(String index, String type, JsonObject data) {
         final String uri = buildIndex(wrapper, index, type);
 
-        System.out.println(uri);
-
         final IndexRequest request = new IndexRequest(wrapper, uri, data);
         return request;
     }

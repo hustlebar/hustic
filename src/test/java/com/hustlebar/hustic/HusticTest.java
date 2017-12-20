@@ -2,6 +2,7 @@ package com.hustlebar.hustic;
 
 import com.hustlebar.hustic.delete.DeleteResponse;
 import com.hustlebar.hustic.get.GetResponse;
+import com.hustlebar.hustic.search.SearchResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
@@ -41,5 +42,13 @@ public class HusticTest {
         final DeleteResponse deleteResponse =
                 hustic.delete("users", "user", "cba2d737-efab-4c9d-93d9-825521b2fd2f");
         System.out.println("Response code: " + deleteResponse.getCode());
+    }
+
+    @Test
+    public void testAll() {
+        Hustic hustic = new Hustic(httpClient, BASE_PATH);
+        final SearchResponse searchResponse =
+                hustic.all("users", "user");
+        System.out.println(searchResponse.getDatas());
     }
 }
