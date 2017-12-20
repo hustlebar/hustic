@@ -20,6 +20,14 @@ public class HusticTest {
             "    \"city\": \"Chennai\"\n" +
             "}";
 
+    private static final String searchData = "{\n" +
+            "    \"query\": {\n" +
+            "        \"match\" : {\n" +
+            "            \"city\" : \"chennai\"\n" +
+            "        }\n" +
+            "    }\n" +
+            "}";
+
     private final CloseableHttpClient httpClient = HttpClients.createDefault();
 
     @Test
@@ -49,6 +57,16 @@ public class HusticTest {
         Hustic hustic = new Hustic(httpClient, BASE_PATH);
         final SearchResponse searchResponse =
                 hustic.all("users", "user");
+        System.out.println(searchResponse.getDatas());
+    }
+
+    @Test
+    public void testSearch() {
+        Hustic hustic = new Hustic(httpClient, BASE_PATH);
+        final SearchResponse searchResponse =
+                hustic.search("users", "user",
+                        Json.createReader(
+                                new StringReader(searchData)).readObject());
         System.out.println(searchResponse.getDatas());
     }
 }

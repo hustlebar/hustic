@@ -47,7 +47,9 @@ public class Hustic {
                 .execute();
     }
 
-    public void search(String index, String type, JsonObject searchJson) {
-
+    public SearchResponse search(String index, String type, JsonObject searchJson) {
+        return new SearchRequestBuilder(wrapper)
+                .build(index, type, searchJson)
+                .execute();
     }
 }
