@@ -1,6 +1,5 @@
 package com.hustlebar.hustic.delete;
 
-import com.hustlebar.hustic.get.GetRequest;
 import com.hustlebar.hustic.util.HusticClientWrapper;
 
 import static com.hustlebar.hustic.util.HusticUrlBuilder.buildGet;

@@ -15,6 +15,6 @@ public class DeleteResponseHandler implements ResponseHandler<DeleteResponse> {
 
     @Override
     public DeleteResponse handleResponse(HttpResponse httpResponse) throws IOException {
-        return null;
+        return new DeleteResponse(httpResponse.getStatusLine().getStatusCode());
     }
 }
